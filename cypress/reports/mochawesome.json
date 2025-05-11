@@ -1,0 +1,131 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-05-10T16:05:38.457Z",
+    "end": "2025-05-10T16:05:54.150Z",
+    "duration": 15693,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e1bb249f-6b9c-46bc-92eb-fbf6e9bfe23d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Login\\login.cy.js",
+      "file": "cypress\\e2e\\Login\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [
+        {
+          "title": "login test",
+          "fullTitle": "login test",
+          "timedOut": null,
+          "duration": 6983,
+          "state": "passed",
+          "speed": "medium",
+          "pass": true,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "loginpage.Navigate();\nloginpage.EnterUsername();\nloginpage.EnterPassword();\nloginpage.ClickLoginButton();",
+          "err": {},
+          "uuid": "97192ef2-f029-4d8b-a812-c355b6dc57b9",
+          "parentUUID": "e1bb249f-6b9c-46bc-92eb-fbf6e9bfe23d",
+          "isHook": false,
+          "skipped": false
+        }
+      ],
+      "suites": [
+        {
+          "uuid": "890d691d-8062-4bbd-9f75-934396fce651",
+          "title": "Login Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should login successfully",
+              "fullTitle": "Login Test should login successfully",
+              "timedOut": null,
+              "duration": 4276,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Your test code here\ncy.allure().step('Typing password');\ncy.get('[name=\"password\"]').type('admin123');\ncy.allure().step('Clicking submit');\ncy.get('[type=\"submit\"]').click();",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[name=\"password\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `[name=\"password\"]`, but never found it.\n    at Context.eval (webpack://orange-hrm/./cypress/e2e/Login/login.cy.js:42:7)",
+                "diff": null
+              },
+              "uuid": "f63c8d1e-15a7-4a27-8452-987b717bee7a",
+              "parentUUID": "890d691d-8062-4bbd-9f75-934396fce651",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "f63c8d1e-15a7-4a27-8452-987b717bee7a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4276,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [
+        "97192ef2-f029-4d8b-a812-c355b6dc57b9"
+      ],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 6983,
+      "root": true,
+      "rootEmpty": false,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

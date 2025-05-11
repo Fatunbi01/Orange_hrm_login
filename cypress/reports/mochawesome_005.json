@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-05-10T16:33:16.753Z",
+    "end": "2025-05-10T16:33:25.723Z",
+    "duration": 8970,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "96455ace-9616-4073-84bf-6c86c6778997",
+      "title": "",
+      "fullFile": "cypress\\e2e\\Login\\google.cy.js",
+      "file": "cypress\\e2e\\Login\\google.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e6c3e798-5836-4735-b801-0390b922b8fd",
+          "title": "Simple google test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "login test",
+              "fullTitle": "Simple google test login test",
+              "timedOut": null,
+              "duration": 4273,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://google.com/');",
+              "err": {},
+              "uuid": "f38f10be-132a-4b0e-84ba-6ce45bb23e18",
+              "parentUUID": "e6c3e798-5836-4735-b801-0390b922b8fd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f38f10be-132a-4b0e-84ba-6ce45bb23e18"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4273,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress/reports/"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
