@@ -1,36 +1,66 @@
+# Name of this workflow (appears in GitHub Actions tab)
 name: Cypress Tests
 
+# When to trigger this workflow:
 on:
+  # Trigger when code is pushed to the 'main' branch
   push:
     branches: [ "main" ]
+  # Also trigger when someone opens a pull request to 'main'
   pull_request:
     branches: [ "main" ]
 
+# Jobs to run in this workflow
 jobs:
+  # Job named 'cypress-run' that handles test execution
   cypress-run:
+    # Run on GitHub's Ubuntu Linux environment
     runs-on: ubuntu-latest
-    timeout-minutes: 10  # Prevent early timeout
+    # Fail if job runs longer than 10 minutes (prevents hanging)
+    timeout-minutes: 10
     
+    # List of steps to execute in order
     steps:
+      # Step 1: Get the code from repository
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Official GitHub action for checking out code
 
+      # Step 2: Set up Node.js environment
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v3  # Official action for Node.js
         with:
-          node-version: 18
-          cache: 'npm'
+          node-version: 18  # Use Node.js version 18
+          cache: 'npm'  # Cache node_modules for faster future runs
 
+      # Step 3: Install all dependencies from package-lock.json
       - name: Install dependencies
-        run: npm ci  # Use ci for cleaner installs in CI
+        run: npm ci  # 'ci' is cleaner than 'install' for CI environments
 
+      # Step 4: Ensure Cypress binary is installed
       - name: Install Cypress
-        run: npx cypress install
+        run: npx cypress install  # Downloads the Cypress test runner
 
+      # Step 5: Execute the Cypress tests
       - name: Run Cypress tests
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v5  # Official Cypress action
         with:
-          browser: chrome
-          headless: true
+          browser: chrome  # Run tests in Chrome browser
+          headless: true  # Run without GUI (faster in CI)
         env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}  # Optional for dashboard
+          # Optional: Only needed if using Cypress Dashboard
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+      # Step 6: Save test videos as workflow artifacts (available for download)
+      - name: Upload Cypress Videos
+        uses: actions/upload-artifact@v4  # Official artifact uploader
+        with:
+          name: cypress-videos  # Name to identify these artifacts
+          path: cypress/videos  # Where Cypress saves video recordings
+
+      # Step 7: Save failed test screenshots as artifacts
+      - name: Upload Cypress Screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots  # Name to identify these artifacts
+          path: cypress/screenshots  # Where Cypress saves screenshots on failures
+
